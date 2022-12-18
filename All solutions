@@ -1,0 +1,49 @@
+#find peak element
+
+class Solution {
+public:
+    int findPeakElement(vector<int>& nums) {
+        int l = 0, r = nums.size() - 1;
+        while(l < r){
+            int mid = (l + r) / 2;
+            if(nums[mid] < nums[mid + 1])
+                l = mid + 1;
+            else
+                r = mid;
+        }
+        return l;
+    }
+};
+
+#find target indices after sorting array
+
+class Solution {
+public:
+    vector<int> targetIndices(vector<int>& nums, int target) {
+        sort(nums.begin(),nums.end());
+    
+    vector<int> num;
+    
+    for (int i=0;i<nums.size();i++)
+    {
+        if(nums[i]==target)
+            num.push_back(i);
+    }
+    
+    return num;
+    
+}
+};
+
+#search in rotated sorted array
+
+class Solution {
+public:
+int search(vector<int>& nums, int target) {
+    int n = nums.size();
+    for(int i=0;i<n;i++)
+        if(nums[i] == target)
+            return i;
+    return -1;
+}
+};
